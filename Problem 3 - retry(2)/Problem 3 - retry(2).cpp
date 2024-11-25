@@ -9,79 +9,100 @@ int main()
 	char rent, version;
 	float basic, advance, pro, bill, payment, change, hours;
 	bool repeat, repeat2;
-do
+	do
 	{
-		cout <<endl<< "--------------------Welcome to Rent  a Scooter--------------------" << endl;
-
-		cout << "Please select a version of your scooter" << endl;
-		cout << "1. 2-wheeler" << endl;
-		cout << "2. 3-wheeler" << endl;
-		cout << "3. 4-wheeler" << endl;
-		cout << "Enter number of choice: ";
-		cin >> version;
-
-		switch (version)
+		do
 		{
-		case '1':
-			cout << "You've selected a 2-wheeler scooter." << endl;
-			repeat = false;
-			break;
-		case'2':
-			cout << "You've selected a 3-wheeler scooter." << endl;
-			repeat = false;
-			break;
-		case'3':
-			cout << "You've selected a 4-wheeler scooter." << endl;
-			repeat = false;
-			break;
-		default:
-			cout << "You have entered an invalid choice.";
-			repeat = true;
-			break;
+			cout << endl << "--------------------Welcome to Rent  a Scooter--------------------" << endl;
+
+			cout << "Please select a version of your scooter" << endl;
+			cout << "1. 2-wheeler" << endl;
+			cout << "2. 3-wheeler" << endl;
+			cout << "3. 4-wheeler" << endl;
+			cout << "Enter number of choice: ";
+			cin >> version;
+
+			switch (version)
+			{
+			case '1':
+				cout << "You've selected a 2-wheeler scooter." << endl;
+				repeat = false;
+				break;
+			case'2':
+				cout << "You've selected a 3-wheeler scooter." << endl;
+				repeat = false;
+				break;
+			case'3':
+				cout << "You've selected a 4-wheeler scooter." << endl;
+				repeat = false;
+				break;
+			default:
+				cout << "You have entered an invalid choice.";
+				repeat = true;
+				break;
+			}
+		} while (repeat);
+
+		do
+		{
+			cout << endl << "Please select a rent: " << endl;
+			cout << "A. Basic   - 30$/hour" << endl;
+			cout << "B. Advance - 50$/hour" << endl;
+			cout << "C. Pro     - 80$/hour" << endl;
+			cout << "Enter letter of choice: ";
+			cin >> rent;
+			switch (rent)
+			{
+			case 'A':
+				cout << "How many hours would you like to rent?" << endl;
+				cout << "Enter hours: ";
+				cin >> hours;
+				bill = hours * 30;
+				repeat2 = false;
+				break;
+			case 'B':
+				cout << "How many hours would you like to rent?" << endl;
+				cout << "Enter hours: ";
+				cin >> hours;
+				bill = hours * 50;
+				repeat2 = false;
+				break;
+			case 'C':
+				cout << "How many hours would you like to rent?" << endl;
+				cout << "Enter hours: ";
+				cin >> hours;
+				bill = hours * 80;
+				repeat2 = false;
+				break;
+			default:
+				cout << "You have entered an invalid choice.";
+				repeat2 = true;
+				break;
+			}
+		} while (repeat2);
+
+		cout << "Please pay " << "$" << bill<<endl;
+		cout << "Enter payment: ";
+		cin >> payment;
+		change = payment - bill;
+		if (change < 0)
+		{
+			do
+			{
+				cout << "Your payment is insufficient."<<endl;
+				cout << "Enter payment:";
+				cin >> payment;
+				change = payment - bill;
+			} while (change < 0);
+
+			if (change == 0)
+			{
+				cout << "Thank you and enjoy your scooter!"<<endl;
+			}
+			cout << "Your change is " << "$" << change<<endl;
+			cout << "Thank you and enjoy your scooter!"<<endl;
 		}
-} while (repeat);
-
-do
-{
-	cout <<endl<< "Please select a rent: "<<endl;
-	cout << "A. Basic   - 30$/hour" << endl;
-	cout << "B. Advance - 50$/hour" << endl;
-	cout << "C. Pro     - 80$/hour" << endl;
-	cout << "Enter letter of choice: ";
-	cin >> rent;
-	switch (rent)
-	{
-	case 'A':
-		cout << "How many hours would you like to rent?"<<endl;
-		cout << "Enter hours: ";
-		cin >> hours;
-		bill = hours * 30;
-		repeat2 = false;
-		break;
-	case 'B':
-		cout << "How many hours would you like to rent?"<<endl;
-		cout << "Enter hours: ";
-		cin >> hours;
-		bill = hours * 50;
-		repeat2 = false;
-		break;
-	case 'C':
-		cout << "How many hours would you like to rent?"<<endl;
-		cout << "Enter hours: ";
-		cin >> hours;
-		bill = hours * 80;
-		repeat2 = false;
-		break;
-	default:
-		cout << "You have entered an invalid choice.";
-		repeat2 = true;
-		break;
-	}
-} while (repeat2);
-
-cout << "Please pay " << "$" << bill;
-cout << "Enter payment: ";
-cin >> payment;
+	} while (true);
 	return 0;
 }
 
