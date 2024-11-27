@@ -85,23 +85,26 @@ int main()
 		cout << "Enter payment: ";
 		cin >> payment;
 		change = payment - bill;
-		if (change < 0)
-		{
-			do
+
+			while (change < 0)
 			{
-				cout << "Your payment is insufficient."<<endl;
+				cout << "Your payment is insufficient." << endl;
 				cout << "Enter payment:";
 				cin >> payment;
 				change = payment - bill;
-			} while (change < 0);
-
-			if (change == 0)
-			{
-				cout << "Thank you and enjoy your scooter!"<<endl;
 			}
-			cout << "Your change is " << "$" << change<<endl;
-			cout << "Thank you and enjoy your scooter!"<<endl;
-		}
+			  if (change > 0)
+			{
+				 cout << "Your change is " << "$" << change << endl;
+				 cout << "Thank you and enjoy your scooter!" << endl;
+			}
+			else
+			{
+				 cout << "Thank you and enjoy your scooter!" << endl;
+			}
+
+
+		
 	} while (true);
 	return 0;
 }
